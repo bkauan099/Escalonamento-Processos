@@ -1,102 +1,116 @@
-Simulador de Escalonamento de Processos
+# **Simulador de Escalonamento de Processos**
 
-Projeto acadêmico desenvolvido como parte da disciplina de Arquitetura de Computadores, com o objetivo de simular e visualizar o funcionamento de algoritmos de escalonamento de processos em um sistema operacional.
-🧠 Objetivo
+Este projeto é um **simulador interativo de escalonamento de processos** desenvolvido para fins educacionais na disciplina de **Arquitetura de Computadores** do curso de **Bacharelado Interdisciplinar em Ciência e Tecnologia (BICT)** da Universidade Federal do Maranhão.  O simulador foi construído em **C**, com **GTK4** e **Cairo**, permitindo ao usuário inserir processos, escolher algoritmos clássicos (FIFO, SJF, SRTN) e visualizar sua execução em um **Gráfico de Gantt*.
 
-Desenvolver um simulador de escalonamento de processos com interface gráfica, utilizando a linguagem C e a biblioteca GTK4. O sistema permite a inserção de processos, escolha do algoritmo de escalonamento e visualização da execução por meio de um gráfico de Gantt.
-🧩 Funcionalidades
+---
 
-    Inserção e remoção de processos (PID, tempo de chegada e duração).
+## 🚀 Funcionalidades
 
-    Seleção do algoritmo de escalonamento (FIFO, SJF, SRTN).
+- **Interface Gráfica Completa**:
+  - Inserção de novos processos com PID, tempo de chegada e duração.
+  - Remoção de processos da lista com um clique.
+  - Seleção do algoritmo desejado (FIFO, SJF ou SRTN).
+  - Validação básica para evitar entradas inválidas.
 
-    Execução do algoritmo com exibição dos resultados no terminal.
+- **Execução de Algoritmos de Escalonamento**:
+  - FIFO: Executa os processos na ordem de chegada.
+  - SJF: Seleciona o processo com menor duração.
+  - SRTN: Variante preemptiva do SJF que avalia o menor tempo restante em tempo real.
+  - Exibe resultados como tempos de início, fim, espera e turnaround no terminal.
 
-    Visualização gráfica da execução dos processos em um gráfico de Gantt.
+- **Visualização Gráfica**:
+  - Geração de **Gráfico de Gantt** colorido para ilustrar a execução dos processos.
+  - Blocos proporcionais ao tempo de execução.
 
-    Interface gráfica amigável construída com GTK4.
+- **Integração Entre Módulos**:
+  - Separação clara entre interface, lógica de escalonamento e renderização gráfica.
+  - Modularidade para facilitar manutenção e futuras expansões.
 
-    Validação básica de entrada de dados.
+---
 
-⚙️ Algoritmos Implementados
+## 🛠️ Tecnologias Utilizadas
 
-    FIFO (First In, First Out)
-    Executa os processos na ordem de chegada.
+- **C**: Linguagem principal do projeto.
+- **GTK4**: Construção da interface gráfica.
+- **Cairo**: Renderização do gráfico de Gantt.
+- **GLib**: Utilitários e estruturas auxiliares.
 
-    SJF (Shortest Job First)
-    Executa o processo com a menor duração entre os disponíveis.
+---
 
-    SRTN (Shortest Remaining Time Next)
-    Variante preemptiva do SJF, avalia o menor tempo restante a cada unidade de tempo.
-
-Todos os algoritmos calculam automaticamente:
-
-    Tempo de início (inicio)
-
-    Tempo de término (fim)
-
-    Tempo de espera (tempo_espera)
-
-    Tempo de turnaround (tempo_turnaround)
-
-🖥️ Tecnologias Utilizadas
-
-    Linguagem C
-
-    GTK4 - Construção da interface gráfica
-
-    Cairo - Geração do gráfico de Gantt
-
-    GLib - Suporte a estruturas auxiliares
-
-📁 Estrutura do Projeto
-
-ESCALONAMENTO PROCESSOS/
+## 📂 Estrutura do Projeto
+```
+escalonador-processos/
+escalonador-processos/
 ├── código/
-│   ├── escalonador.c     # Lógica dos algoritmos FIFO, SJF e SRTN
-│   ├── grafico.c         # Desenho do gráfico de Gantt com Cairo/GTK
-│   └── teste.c           # Testes ou execução inicial
+│ ├── main.c # Interface gráfica e controle geral
+│ ├── escalonador.c # Implementação dos algoritmos FIFO, SJF, SRTN
+│ ├── grafico.c # Desenho do Gráfico de Gantt usando Cairo/GTK
+│ ├── widgets.h # Estruturas de dados para a GUI
+│ └── grafico.h # Definições para renderização
 │
 ├── Documentos/
-│   ├── Planejamento Escalonamento.docx/pdf
-│   ├── Relatório de Desenvolvimento do Produto - Parte Final.docx/pdf
-│   ├── TAP.docx/pdf
+│ ├── Planejamento Escalonamento.docx
+│ ├── Relatório de Desenvolvimento do Produto - Parte Final.docx
+│ └── TAP.docx
 │
-└── Slide/                # Apresentações (em construção)
+└── Slide/
+└── (em construção)
+```
+---
 
-🔄 Fluxo de Funcionamento
+## 🖥️ Como Executar o Projeto
 
-    O usuário insere os processos manualmente pela GUI.
+> **Requisitos**:  
+> - Linux com GTK4 instalado (pacote `libgtk-4-dev` ou equivalente)  
+> - Compilador GCC
 
-    Escolhe o algoritmo desejado.
+1️⃣ Clone o repositório:
+git clone https://github.com/seu-usuario/escalonador-processos.git
 
-    Clica em "Executar Escalonamento".
+2️⃣ Acesse a pasta do projeto:
+cd escalonador-processos/código
 
-    O algoritmo processa os dados e exibe os resultados.
+3️⃣ Compile o projeto:
+gcc main.c escalonador.c grafico.c -o simulador `pkg-config --cflags --libs gtk4`
 
-    O gráfico de Gantt é renderizado visualmente.
+4️⃣ Execute o simulador:
+./simulador
 
-📈 Resultados
+---
 
-    Interface funcional com entrada e remoção de processos.
+## 📈 Resultados Esperados
 
-    Algoritmos corretamente implementados e testados.
+  * Interface gráfica funcional para adicionar/remover processos.
 
-    Representação gráfica clara e interativa.
+  * Escolha de algoritmo (FIFO, SJF ou SRTN).
 
-    Interface responsiva construída com GTK4.
+  * Saída de tempos de execução no terminal.
 
-🚀 Próximas Melhorias
+  * Renderização clara do Gráfico de Gantt com os processos escalonados.
 
-    Exibir métricas médias (ex: tempo médio de espera) diretamente na GUI.
+---
 
-    Adicionar salvamento/carregamento de processos.
+## 🎯 Próximas Melhorias
 
-    Melhorar visualmente o gráfico Gantt com mais informações.
+   * Exibir métricas médias na GUI (ex: tempo médio de espera, turnaround médio).
 
-    Implementar simulação passo a passo da execução (modo educacional).
+  *  Adicionar salvamento e carregamento de listas de processos.
 
-👥 Autores
+   * Melhorar a qualidade visual do gráfico (início, fim, legendas).
+
+  * Implementar animação "passo a passo" para fins educacionais.
+---
+
+## ✅ Validação de Dados
+
+* Verificação de campos obrigatórios na inserção de processos.
+
+* Limites mínimos/máximos para tempos de chegada e duração.
+
+* Bloqueio de inserção de entradas vazias ou inválidas.
+---
+
+## 👨‍💻 Autores
 
     Bruno Kauan Rodrigues Silva – 2022030340
 
@@ -108,8 +122,18 @@ ESCALONAMENTO PROCESSOS/
 
     Ellen Cristina de Sousa Castro – 2022030206
 
-🏫 Instituição
+---
+
+## 🏫 Instituição
 
 Universidade Federal do Maranhão (UFMA)
 Bacharelado Interdisciplinar em Ciência e Tecnologia
 Disciplina: Arquitetura de Computadores
+
+---
+
+## 📚 Licença
+Este projeto é acadêmico e de uso educacional. Sinta-se livre para estudar e modificar para fins não comerciais.
+
+
+
