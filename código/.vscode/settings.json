@@ -1,0 +1,41 @@
+{
+    // Associações de arquivos para não precisar de extensão .c/.cpp
+    "files.associations": {
+      "escalonador.h": "c",
+      "grafico.h": "c",
+      "widgets.h": "c"
+    },
+  
+    // Caminhos onde o IntelliSense vai procurar headers
+    "C_Cpp.default.includePath": [
+      "${workspaceFolder}/include",                       // seus headers
+      "${workspaceFolder}/src",                           // caso haja .h ao lado dos .c
+  
+      // ==== GTK4, Cairo, GLib, etc (MSYS2 MinGW64) ====
+      "C:/msys64/mingw64/include/gtk-4.0",
+      "C:/msys64/mingw64/include/pango-1.0",
+      "C:/msys64/mingw64/include/fribidi",
+      "C:/msys64/mingw64/include/harfbuzz",
+      "C:/msys64/mingw64/include/gdk-pixbuf-2.0",
+      "C:/msys64/mingw64/include/webp",
+      "C:/msys64/mingw64/include/cairo",
+      "C:/msys64/mingw64/include/freetype2",
+      "C:/msys64/mingw64/include/libpng16",
+      "C:/msys64/mingw64/include/pixman-1",
+      "C:/msys64/mingw64/include/graphene-1.0",
+      "C:/msys64/mingw64/lib/graphene-1.0/include",
+      "C:/msys64/mingw64/include/glib-2.0",
+      "C:/msys64/mingw64/lib/glib-2.0/include"
+    ],
+  
+    // Define o compilador (para extrair macros e flags internas)
+    "C_Cpp.default.compilerPath": "C:/msys64/mingw64/bin/gcc.exe",
+  
+    // Padrões de linguagem
+    "C_Cpp.default.cStandard": "gnu17",
+    "C_Cpp.default.cppStandard": "gnu++17",
+  
+    // Modo de IntelliSense mais adequado ao GCC no MinGW64
+    "C_Cpp.default.intelliSenseMode": "gcc-x64"
+  }
+  
